@@ -32,3 +32,11 @@ Database schema:
                 PRIMARY KEY (book_id, reservation_id)
             );
 
+How to run:
+docker: docker-compose up --build
+app: python3 -m app.main
+
+Stress tests:
+1 - rapid same request - book borrowed only once
+2 - randomized multi client request - 12.17s for 5000 randomized requests
+3 - competing clients - due to the CAP theorem there still exist some discrepancies in the borrowed books
